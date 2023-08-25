@@ -6,8 +6,10 @@
 
 <script setup>
 import { useRoute } from "vue-router";
-import AuthLayout from "./layouts/AuthLayout.vue";
 import { computed } from "vue";
+
+import AuthLayout from "./layouts/AuthLayout.vue";
+import DefaultLayout from "./layouts/DefaultLayout.vue";
 
 const layouts = {
   auth: AuthLayout,
@@ -15,6 +17,6 @@ const layouts = {
 
 const route = useRoute();
 const layout = computed(() => {
-  return layouts[route.meta.layout];
+  return layouts[route.meta.layout] || DefaultLayout;
 });
 </script>
