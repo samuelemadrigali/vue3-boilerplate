@@ -8,8 +8,8 @@
 import { useRoute } from "vue-router";
 import { computed } from "vue";
 
-import AuthLayout from "./layouts/AuthLayout.vue";
-import DefaultLayout from "./layouts/DefaultLayout.vue";
+import AuthLayout from "@/layouts/AuthLayout.vue";
+import DefaultLayout from "@/layouts/DefaultLayout.vue";
 
 const layouts = {
   auth: AuthLayout,

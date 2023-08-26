@@ -1,5 +1,8 @@
+import { useUserStore } from "@/stores/UserStore";
+
 export default function ({ next }) {
-  if (!localStorage.getItem("token")) {
+  const userStore = useUserStore();
+  if (!userStore.isLoggedIn) {
     return next({ name: "LoginPage" });
   }
   return next();
