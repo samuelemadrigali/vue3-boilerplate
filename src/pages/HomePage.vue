@@ -11,7 +11,7 @@ async function login() {
   try {
     await userStore.login({
       email: "samuele.madrigali@gmail.com",
-      password: "password",
+      password: "passwordd",
     });
   } catch (error) {
     console.error(error);

@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import user from "@/api/base/models/User";
+import user from "@/api/base/services/User";
 import router from "@/routes";
 
 export const useUserStore = defineStore("UserStore", {
@@ -22,7 +22,7 @@ export const useUserStore = defineStore("UserStore", {
         this.user = data.user;
         this.accessToken = data.accessToken;
       } catch (error) {
-        throw error.request.responseText;
+        throw error.response.data;
       }
     },
     async login(payload) {
@@ -31,7 +31,7 @@ export const useUserStore = defineStore("UserStore", {
         this.user = data.user;
         this.accessToken = data.accessToken;
       } catch (error) {
-        throw error.request.responseText;
+        throw error.response.data;
       }
     },
     async logout() {
