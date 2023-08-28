@@ -1,5 +1,3 @@
-import BaseService from "../BaseService";
+import BaseService from "../../BaseService";
 
-class Todo extends BaseService {}
-
-export default new Todo("todos");
+export default class Todo extends BaseService {}

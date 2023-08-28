@@ -4,14 +4,14 @@
 </template>
 
 <script setup>
-import { useUserStore } from "@/stores/UserStore";
-const userStore = useUserStore();
+import { useAuthStore } from "@/stores/AuthStore";
+const authStore = useAuthStore();
 
 async function login() {
   try {
-    await userStore.login({
+    await authStore.login({
       email: "samuele.madrigali@gmail.com",
-      password: "passwordd",
+      password: "password",
     });
   } catch (error) {
     console.error(error);

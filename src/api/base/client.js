@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useUserStore } from "@/stores/UserStore";
+import { useAuthStore } from "@/stores/AuthStore";
 
 const instance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
@@ -9,9 +9,9 @@ const instance = axios.create({
 // Add a request interceptor
 instance.interceptors.request.use(
   function (config) {
-    const userStore = useUserStore();
-    if (userStore.accessToken) {
-      config.headers.Authorization = `Bearer ${userStore.accessToken}`;
+    const authStore = useAuthStore();
+    if (authStore.accessToken) {
+      config.headers.Authorization = `Bearer ${authStore.accessToken}`;
     }
     return config;
   },
@@ -31,8 +31,8 @@ instance.interceptors.response.use(
   function (error) {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     if (error.response.status === 401) {
-      const userStore = useUserStore();
-      userStore.logout();
+      const authStore = useAuthStore();
+      authStore.logout();
     }
     // Do something with response error
     return Promise.reject(error);

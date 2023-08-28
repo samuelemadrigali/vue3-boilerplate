@@ -1,11 +1,4 @@
-export default class BaseCrud {
-  _apiClient;
-  _resource;
-
-  constructor(resource) {
-    this._resource = resource;
-  }
-
+export default {
   async create(payload) {
     try {
       const { data } = await this._apiClient.post(
@@ -16,7 +9,7 @@ export default class BaseCrud {
     } catch (error) {
       throw error;
     }
-  }
+  },
 
   async read(id) {
     try {
@@ -25,7 +18,7 @@ export default class BaseCrud {
     } catch (error) {
       throw error;
     }
-  }
+  },
 
   async readAll() {
     try {
@@ -34,7 +27,7 @@ export default class BaseCrud {
     } catch (error) {
       throw error;
     }
-  }
+  },
 
   async update(payload, id) {
     try {
@@ -46,7 +39,7 @@ export default class BaseCrud {
     } catch (error) {
       throw error;
     }
-  }
+  },
 
   async delete(id) {
     try {
@@ -55,5 +48,5 @@ export default class BaseCrud {
     } catch (error) {
       throw error;
     }
-  }
-}
+  },
+};

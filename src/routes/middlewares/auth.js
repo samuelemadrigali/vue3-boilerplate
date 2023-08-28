@@ -1,8 +1,8 @@
-import { useUserStore } from "@/stores/UserStore";
+import { useAuthStore } from "@/stores/AuthStore";
 
 export default function ({ next }) {
-  const userStore = useUserStore();
-  if (!userStore.isLoggedIn) {
+  const authStore = useAuthStore();
+  if (!authStore.isLoggedIn) {
     return next({ name: "LoginPage" });
   }
   return next();
